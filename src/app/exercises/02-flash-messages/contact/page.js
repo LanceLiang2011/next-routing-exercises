@@ -1,10 +1,13 @@
-'use client';
-import React from 'react';
+"use client";
+import React from "react";
+import { handleSubmit } from "../../../../actions/toastAction";
+import { ToastContext } from "../../../../components/ToastProvider";
 
 function ContactPage() {
+  const { createToast } = React.useContext(ToastContext);
   return (
     <main>
-      <form>
+      <form onSubmit={() => createToast("Success")} action={handleSubmit}>
         <label htmlFor="name">Name:</label>
         <input id="name" required={true} />
 
